@@ -1,0 +1,988 @@
+/* --- Global Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* --- Navigation Bar --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 70px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+
+/* --- Burger Menu Styles (Hidden on Desktop) --- */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- Layout utility classes --- */
+section {
+    min-height: 100vh;
+    padding: 100px 20px 50px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+/* --- Home / Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, #02132e 0%, #1c60cf 100%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    color: #3498db;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #dacdcd;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #144261;
+}
+
+/* --- About Section --- */
+.about-section {
+    background-color: #ffffff;
+}
+.about-section h2 {
+    color: #ffffff; /* Replace with your preferred hex code */
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Projects Section --- */
+.projects-section {
+    background-color: #f8f9fa;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: #ffffff;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- RESPONSIVE DESIGN (Phones & Tablets) --- */
+@media screen and (max-width: 768px) {
+    /* Show the burger menu */
+    .burger {
+        display: block;
+    }
+
+    /* Style the mobile navigation menu */
+    .nav-links {
+        position: absolute;
+        right: -100%; /* Hides the menu off-screen */
+        top: 70px;
+        background-color: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+        transition: right 0.4s ease-in-out;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Class added by JavaScript to slide menu in */
+    .nav-active {
+        right: 0;
+    }
+
+    /* Burger Animation classes */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Adjust text sizes for smaller screens */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+/* --- Modified About Section --- */
+.about-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    text-align: left; /* Aligns text to the left for the details side */
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px; /* Adjust size as needed */
+    border-radius: 15px; /* Rounds the corners */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* --- Social Media Icons --- */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+/* --- Social Media Icon Set --- */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    
+    /* Creating a circle */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    font-size: 1.2rem; /* Size of the icon */
+    transition: all 0.3s ease;
+}
+/* --- Social Media Icon Set --- */
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start; /* Aligns with your text on desktop */
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #2c3e50; /* Dark elegant base color */
+    
+    /* Making the icon a perfect circle */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effects */
+.social-icon:hover {
+    transform: translateY(-5px); /* Gentle lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Brand Colors on Hover */
+.social-icon:nth-child(1):hover {
+    background-color: #0077b5; /* LinkedIn Blue */
+}
+
+.social-icon:nth-child(2):hover {
+    background-color: #333333; /* GitHub Black */
+}
+
+.social-icon:nth-child(3):hover {
+    background-color: #e4405f; /* Instagram Pink/Red */
+}
+
+/* Mobile Alignment */
+@media screen and (max-width: 768px) {
+    .social-links {
+        justify-content: center; /* Centers icons on phones */
+    }
+}
+/* --- Advanced About Section --- */
+.about-section {
+    padding: 120px 20px;
+    background: var(--bg-color);
+}
+
+.about-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Left Side Styling */
+.about-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--accent-color), #8e44ad);
+    border-radius: 20px;
+    line-height: 0;
+}
+
+.image-wrapper img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Right Side Styling */
+.about-right {
+    flex: 1.5;
+    text-align: left;
+}
+
+.about-right h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.about-right h2 span {
+    color: var(--accent-color);
+}
+
+.about-right p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* Skills Section */
+.skills-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.skill-bar {
+    margin-bottom: 20px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.bar-bg {
+    width: 100%;
+    height: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 992px) {
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-right {
+        text-align: center;
+    }
+
+    .about-right h2 {
+        text-align: center;
+    }
+}
+:root {
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #64ffda; /* Replace with your primary brand color */
+    --text-main: #276bc4;
+    --text-dim: #808db3;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    color: #000;
+}
+.project-card {
+    background: #112240; /* Slightly lighter blue than the background */
+    border: 1px solid rgba(100, 255, 218, 0.1); /* Subtle teal border */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-info p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.project-tags span {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    background: rgba(100, 255, 218, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.project-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent-color);
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(100, 255, 218, 0.1);
+    letter-spacing: 0.5px;
+}
+.project-grid {
+    display: grid;
+    /* This creates a 2-column layout on medium screens and 1-column on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Optional: Force exactly 2 columns on large desktops for symmetry */
+@media (min-width: 1200px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}.education-section {
+    padding: 80px 0;
+}
+
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.edu-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.edu-date {
+    font-family: 'Courier New', monospace;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.edu-category {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edu-content h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.edu-institution {
+    color: var(--accent-color);
+    font-style: italic;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.edu-details {
+    list-style: none;
+    padding: 0;
+}
+
+.edu-details li {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.edu-details li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+    .edu-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .edu-date {
+        margin-bottom: 10px;
+    }
+}
+/* 1. Global Reset & Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #020c1b; /* Deepest Navy */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 242, 254, 0.05) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(112, 0, 255, 0.05) 0, transparent 50%);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. Section Headings */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--white);
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-main);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* 3. Container Management */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* 4. Enhanced Project Card Styling */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-image {
+    position: relative;
+    height: 220px;
+}
+
+/* Adds a purple/blue tint to images until hovered */
+.project-image::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(2, 12, 27, 0.8));
+    transition: 0.3s;
+}
+
+.project-card:hover .project-image::after {
+    background: transparent;
+}
+
+/* 5. Enhanced Education Timeline Styling */
+.education-timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.edu-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding: 40px;
+    border-left: 0; /* Removing the old left border */
+    position: relative;
+}
+
+/* Floating Glow Effect for Education Cards */
+.edu-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px; /* Border thickness */
+    background: var(--gradient-main);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.2;
+    transition: opacity 0.3s;
+}
+
+.edu-card:hover::before {
+    opacity: 1;
+}
+
+/* 6. Typography Polish */
+h3 {
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.project-tags span {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* 7. Scroll Animation Utility */
+/* Add class="reveal" to your HTML elements to use this */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Layout Container */
+.contact-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Makes the form side slightly wider */
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    align-items: center;
+}
+
+/* The Circular Image */
+.profile-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #007bff; /* Accent color border */
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.contact-form-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .contact-grid-container {
+        grid-template-columns: 1fr; /* Stacks them on top of each other on small screens */
+        text-align: center;
+    }
+}
+.contact-form input, 
+.contact-form textarea {
+    border: 1.5px solid #e0e0e0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth "premium" feel */
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    /* Soft blue glow */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15); 
+    transform: translateY(-1px); /* Very subtle lift */
+}
+.profile-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+    /* Double-border effect for a "badge" look */
+    padding: 5px;
+    border: 2px solid #007bff;
+    background-color: #fff; 
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.contact-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px; /* Increased breathing room */
+    align-items: stretch; 
+}
+
+/* Make the contact-info side align vertically with the form */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn-submit {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-submit:active {
+    transform: scale(0.98); /* Visual feedback that the button was pressed */
+}
+
+
+.logo-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Keeps the text color the same as your logo style */
+    display: inline-block; /* Ensures the clickable area fits the logo perfectly */
+    transition: transform 0.3s ease; /* For a smooth hover effect */
+}
+
+.logo-link:hover {
+    transform: scale(1.05); /* Adds a subtle "attractive" pop when hovered */
+    opacity: 0.8;           /* Visual feedback that it is clickable */
+}
+
+.logo {
+    /* Your existing logo styles here */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
